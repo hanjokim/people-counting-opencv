@@ -2,7 +2,7 @@
 import cv2
 
 # 기본 카메라 객체 생성
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 
 # 열렸는지 확인
 if not cap.isOpened():
@@ -15,15 +15,19 @@ w = round(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 h = round(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps = cap.get(cv2.CAP_PROP_FPS) # 카메라에 따라 값이 정상적, 비정상적
 
+print(w, h, fps)
+
 # fourcc 값 받아오기, *는 문자를 풀어쓰는 방식, *'DIVX' == 'D', 'I', 'V', 'X'
-fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+# fourcc = cv2.VideoWriter_fourcc(*'MP4V')
 
 # 1프레임과 다음 프레임 사이의 간격 설정
 delay = round(1000/fps)
 
 # 웹캠으로 찰영한 영상을 저장하기
 # cv2.VideoWriter 객체 생성, 기존에 받아온 속성값 입력
-out = cv2.VideoWriter('output.mp4', fourcc, fps, (w, h))
+# out = cv2.VideoWriter('output/output.mp4', fourcc, fps, (w, h))
+out = cv2.VideoWriter('output/output.avi', fourcc, fps, (w, h))
 
 # 제대로 열렸는지 확인
 if not out.isOpened():
