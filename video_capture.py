@@ -23,7 +23,7 @@ delay = round(1000/fps)
 
 # 웹캠으로 찰영한 영상을 저장하기
 # cv2.VideoWriter 객체 생성, 기존에 받아온 속성값 입력
-out = cv2.VideoWriter('output.avi', fourcc, fps, (w, h))
+out = cv2.VideoWriter('output.mp4', fourcc, fps, (w, h))
 
 # 제대로 열렸는지 확인
 if not out.isOpened():
