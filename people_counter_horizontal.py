@@ -45,7 +45,7 @@ net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 # if a video path was not supplied, grab a reference to the webcam
 if not args.get("input", False):
     print("[INFO] starting video stream...")
-    vs = VideoStream(src=2).start()
+    vs = VideoStream(src=0).start()
     time.sleep(1.0)
 
 # otherwise, grab a reference to the video file
@@ -92,7 +92,7 @@ while True:
     # resize the frame to have a maximum width of 500 pixels (the
     # less data we have, the faster we can process it), then convert
     # the frame from BGR to RGB for dlib
-    frame = imutils.resize(frame, width=500)
+    frame = imutils.resize(frame, width=600)
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     # if the frame dimensions are empty, set them
